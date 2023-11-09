@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shoes</title>
+    <link rel="stylesheet" href="classic(CSS).css"> 
+</head>
+<body>
+    <script>
+
+function calculateTotal() {
+            
+            const size1 = document.getElementById('size1').value;
+            const size2 = document.getElementById('size2').value;
+            const size3 = document.getElementById('size3').value;
+
+            
+            const priceSmall = 60;
+            const priceMedium = 80;
+            const priceLarge = 100;
+            const taxes=1.20;
+            const shipping=10;
+
+           
+            const totalValue = (getPrice(size1) + getPrice(size2) + getPrice(size3)+shipping)*taxes;
+
+            
+            document.getElementById('total-value').innerHTML = `Total Value: $${totalValue}`;
+        }
+
+        function getPrice(size) {
+            switch (size) {
+                case 'none':
+                    return 0;
+                case 'size1':
+                    return 60;
+                case 'size2':
+                    return 80;
+                case 'size3':
+                    return 100;
+                default:
+                    return 0;
+            }
+        }
+        function completeOrder() {
+            window.open('order-success.html', '_blank');
+        }
+    </script>
+    <section id="classic-page">
+        <h2>Men Shoes</h2>
+        
+        <!-- Div 1 -->
+        <div class="shoe-container">
+            <img src="men1.jpg" alt="Classic Shoe 1">
+            <label for="size1">Select Size:</label>
+            <select id="size1" onchange="handleSizeSelection('Classic Shoe 1', this.value)">
+
+                <option value="none">None</option>
+                <option value="size1">Size small</option>
+                <option value="size2">Size medium</option>
+                <option value="size3">Size large</option>
+            </select>
+        </div>
+
+        <!-- Div 2 -->
+        <div class="shoe-container">
+            <img src="men2.jpg" alt="Classic Shoe 2">
+            <label for="size2">Select Size:</label>
+            <select id="size2" onchange="handleSizeSelection('Classic Shoe 2', this.value)">
+                <option value="none">None</option>
+                <option value="size1">Size small</option>
+                <option value="size2">Size medium</option>
+                <option value="size3">Size large</option>
+            </select>
+        </div>
+
+        <!-- Div 3 -->
+        <div class="shoe-container">
+            <img src="men3.jpg" alt="Classic Shoe 3">
+            <label for="size3">Select Size:</label>
+            <select id="size3" onchange="handleSizeSelection('Classic Shoe 3', this.value)">
+                <option value="none">None</option>
+                <option value="size1">Size small</option>
+                <option value="size2">Size medium</option>
+                <option value="size3">Size large</option>
+            </select>
+        </div>
+        
+
+        <!-- Price Note -->
+        <div class="price-note">
+            <p>Note: Prices - Small: $60, Medium: $80, Large: $100</p>
+        </div>
+        <div id="last-total">
+            <button id="total" onclick="calculateTotal()">Calculate Total</button>
+            <div id="total-value"></div>
+            <button id="complete-order" onclick="completeOrder()">Complete Order</button>
+
+        </div>
+        
+
+
+        <!-- Back to Main Page Button -->
+        <a href="midterm.html" class="back-button">Back to Main Page</a>
+    </section>
+    
+
+    
+</body>
+</html>
